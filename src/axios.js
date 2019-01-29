@@ -22,11 +22,11 @@ Axios.interceptors.response.use(res => {
     if (requestCount === 0) {
         utils.query('body')[0].removeChild(utils.query('.loadingDom')[0]);
     }
-    if (res.data.code !== 0) {
-        utils.showToast({
-            text: '操作失败'
-        })
-    }
+    // if (res.data.code !== 0) {
+    //     utils.showToast({
+    //         text: '操作失败'
+    //     })
+    // }
     return res;
 })
 

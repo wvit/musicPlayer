@@ -6,14 +6,8 @@ const crypto = require('crypto');
 
 //接受用户登录信息
 router.post("/user/signIn", async ctx => {
-    await findUser(ctx.request.body).then(({
-        code,
-        data
-    }) => {
-        ctx.body = {
-            code,
-            data
-        }
+    await findUser(ctx.request.body).then(data => {
+        ctx.body = data;
     })
 });
 
@@ -27,27 +21,28 @@ function findUser(reqData) {
         })
     }).then(user => {
         const password = crypto.createHash('md5').update(reqData.password + '260817').digest('hex');
-        let code = 0;
-        let data = {};
+        const resData = {
+            code: 0,
+            data: {}
+        }
         if (!user) {
-            code = 2;
-            data.text = '用户不存在';
+            resData.code = 2;
+            resData.data.text = '用户不存在';
         } else if (user.password !== password) {
-            code = -1;
-            data.text = '密码错误';
+            resData.code = -1;
+            resData.data.text = '密码错误';
         } else {
-            data.userInfo = {
-                nickname: user.nickname,
-                email: user.email,
-                userId: user.userId
-            };
-            data.text = '登录成功，正在跳转...';
+            resData.data = {
+                userInfo: {
+                    nickname: user.nickname,
+                    email: user.email,
+                    userId: user.userId
+                },
+                text: '登录成功，正在跳转...'
+            }
         }
         return new Promise(resolve => {
-            resolve({
-                code,
-                data
-            })
+            resolve(resData)
         })
     })
 }

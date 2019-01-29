@@ -15,7 +15,7 @@ mongoose.connect(dbs, {
     useNewUrlParser: true
 }, err => {
     const msg = err ? '数据库发生错误' : '数据库链接成功';
-    console.log(msg, dbs)
+    console.log(msg, dbs, err)
 });
 
 const app = new Koa();
