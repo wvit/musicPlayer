@@ -20,15 +20,15 @@ router.post("/user/signUp", async ctx => {
 //保存user数据
 function savaUser(reqData) {
     return new Promise(resolve => {
-        User.find({
+        User.findOne({
             nickname: reqData.nickname
-        }, (err, users) => {
-            resolve(users);
+        }, (err, user) => {
+            resolve(user);
         })
-    }).then(users => {
+    }).then(User => {
         let code = 0;
         let data = '注册成功';
-        if (users.length > 0) {
+        if (User) {
             code = 2;
             data = '昵称已存在';
         } else {
