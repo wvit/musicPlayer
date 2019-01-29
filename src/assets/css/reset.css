@@ -1,0 +1,74 @@
+body,
+p,
+div,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.contentWrap {
+    padding: 0 10px;
+}
+
+.mt10 {
+    margin-bottom: 10px;
+}
+
+.mt20 {
+    margin-bottom: 20px;
+}
+
+.mt30 {
+    margin-bottom: 30px;
+}
+
+.mainBg {
+    background: #1ba160;
+}
+
+.mainColor {
+    color: #1ba160;
+}
+
+.sendBtn {
+    width: 100%;
+    background: #1ba160;
+}
