@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import store from '@/store.js'
 
 const utils = {
     //判断字符串为空
@@ -186,6 +187,28 @@ const utils = {
     },
     //存储全局变量
     store: new Map(),
+    //设置app肤色
+    setAppMainColor() {
+        const mainColor = store.state.config.mainColor;
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .mainStyleOff{
+                background:#fff;
+                color:${mainColor};
+            }
+            .mainStyleOn{
+                background:${mainColor};
+                color:#fff;
+            }
+            .mainBackgroundColor{
+                background:${mainColor};
+            }
+            .mainFontColor{
+                color:${mainColor};
+            }
+       `
+        this.query('head')[0].appendChild(style);
+    }
 }
 
 Vue.prototype.$utils = utils;

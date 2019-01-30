@@ -1,5 +1,9 @@
 <template>
-  <div class="head">
+  <div class="head mainStyleOn">
+    <span
+      class="goBack"
+      @click="goBack"
+    ></span>
     <p class="title">
       {{title}}
     </p>
@@ -9,6 +13,12 @@
 export default {
   props: {
     title: String
+  },
+  methods: {
+    //返回
+    goBack() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>
@@ -17,7 +27,6 @@ export default {
   position: relative;
   height: 40px;
   margin-bottom: 30px;
-  background: #1ba160;
 }
 .title {
   position: absolute;
@@ -25,7 +34,17 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
   font-size: 14px;
-  color: #fff;
+}
+.goBack {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-right: none;
+  border-top: none;
 }
 </style>
 

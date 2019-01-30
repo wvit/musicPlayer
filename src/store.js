@@ -3,14 +3,22 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+//用户配置信息
+const config = {
   state: {
-
+    mainColor: 'red', //背景颜色
   },
   mutations: {
-
+    //设置背景颜色
+    setMainColor(state, color) {
+      state.color = color;
+    },
   },
-  actions: {
+}
 
+export default new Vuex.Store({
+  strict: true,
+  modules: {
+    config
   }
 })

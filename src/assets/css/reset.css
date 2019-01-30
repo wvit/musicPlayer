@@ -31,7 +31,8 @@ li {
 }
 
 input,
-textarea {
+textarea,
+button {
     outline: none;
 }
 
@@ -60,15 +61,10 @@ textarea {
     margin-bottom: 30px;
 }
 
-.mainBg {
-    background: #1ba160;
-}
-
-.mainColor {
-    color: #1ba160;
-}
-
 .sendBtn {
     width: 100%;
-    background: #1ba160;
+}
+
+.border-none {
+    border: none !important;
 }

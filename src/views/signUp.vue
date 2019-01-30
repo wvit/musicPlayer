@@ -28,13 +28,13 @@
         已有账号？
         <router-link
           to="/signIn"
-          class="mainColor"
+          class="mainFontColor"
         >去登录</router-link>
       </div>
 
       <el-button
         type="success"
-        class="sendBtn"
+        class="sendBtn border-none mainStyleOn"
         @click="judgeSignUpInfo"
       >确认注册</el-button>
     </div>
@@ -59,6 +59,10 @@ export default {
   },
   components: {
     titleHead: () => import("@/components/public/titleHead.vue")
+  },
+  //初始化肤色
+  beforeMount() {
+    this.$utils.setAppMainColor();
   },
   methods: {
     //是否明文显示密码开关

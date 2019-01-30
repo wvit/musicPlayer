@@ -17,12 +17,12 @@
         还没有账号？
         <router-link
           to="/signUp"
-          class="mainColor"
+          class="mainFontColor"
         >去注册</router-link>
       </div>
       <el-button
         type="success"
-        class="sendBtn"
+        class="sendBtn border-none mainStyleOn"
         @click="signInBtn"
       >登录</el-button>
     </div>
@@ -41,6 +41,10 @@ export default {
   },
   components: {
     titleHead: () => import("@/components/public/titleHead.vue")
+  },
+  //初始化肤色
+  beforeMount() {
+    this.$utils.setAppMainColor();
   },
   methods: {
     //登录

@@ -6,6 +6,7 @@ import store from '@/store';
 import '@/utils';
 import '@/axios';
 import '@/assets/css/reset.css';
+import '@/assets/iconfont/iconfont.css';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'animate.css'
 

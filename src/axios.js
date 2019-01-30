@@ -3,6 +3,7 @@ import Axios from 'axios';
 import VueAxios from 'vue-axios';
 import url from 'url';
 import utils from '@/utils.js';
+import store from '@/store.js';
 
 let requestCount = 0;
 
@@ -22,24 +23,25 @@ Axios.interceptors.response.use(res => {
     if (requestCount === 0) {
         utils.query('body')[0].removeChild(utils.query('.loadingDom')[0]);
     }
-    // if (res.data.code !== 0) {
-    //     utils.showToast({
-    //         text: '操作失败'
-    //     })
-    // }
     return res;
 })
 
 //请求出现loading图标
 function showLoading(url) {
     requestCount++;
+    const timeout = 6000;
+    let timer = null;
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+        requestCount = 0;
+    }, timeout)
     if (utils.query('.loadingDom').length === 0) {
         utils.loadingMove({
-            color: ['#fff', '#1ba160'],
+            color: ['#fff', store.state.config.mainColor],
             size: 50,
             width: 6,
             speed: 15,
-            timeout: 6000
+            timeout
         });
     }
 }
