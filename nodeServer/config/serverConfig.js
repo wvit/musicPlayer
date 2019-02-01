@@ -2,7 +2,7 @@ module.exports = {
     dbs: 'mongodb://localhost/musicPlayerData',
     server: {
         get host() {
-            return '10.100.115.152'
+            return '192.168.43.69'
         },
         get port() {
             return 2002

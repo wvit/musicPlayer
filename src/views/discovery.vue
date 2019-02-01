@@ -1,6 +1,6 @@
 <template>
   <div>
-    <title-head title="发现"></title-head>
+    <titleHead title="发现"></titleHead>
 
   </div>
 </template>

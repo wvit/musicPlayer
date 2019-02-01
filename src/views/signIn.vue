@@ -1,14 +1,14 @@
 <template>
   <div>
-    <title-head title="登录"></title-head>
-    <div class="contentWrap">
+    <titleHead title="登录"></titleHead>
+    <div class="contentWrap mt30">
       <el-input
         v-model="signIn.nickname"
         placeholder="请输入昵称"
-        class="mt20"
+        class="mb20"
       ></el-input>
       <el-input
-        class="mt20"
+        class="mb20"
         type="password"
         v-model="signIn.password"
         placeholder="请填写密码"

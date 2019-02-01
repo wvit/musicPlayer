@@ -1,6 +1,6 @@
 <template>
   <div>
-    <title-head title="音乐列表"></title-head>
+    <titleHead title="音乐列表"></titleHead>
     <div class="contentWrap">
       <ul>
         <li

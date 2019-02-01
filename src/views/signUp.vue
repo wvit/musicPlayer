@@ -1,18 +1,18 @@
 <template>
   <div>
-    <title-head title="注册账号"></title-head>
-    <div class="contentWrap">
+    <titleHead title="注册账号"></titleHead>
+    <div class="contentWrap mt30">
       <el-input
         v-model="signUp.nickname"
         placeholder="请输入昵称"
-        class="mt20"
+        class="mb20"
       ></el-input>
       <el-input
         v-model="signUp.email"
         placeholder="请输入邮箱"
-        class="mt20"
+        class="mb20"
       ></el-input>
-      <div class="passwordInput mt20">
+      <div class="passwordInput mb20">
         <el-input
           :type="showPassword?'text':'password'"
           v-model="signUp.password"

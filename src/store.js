@@ -6,7 +6,7 @@ Vue.use(Vuex)
 //用户配置信息
 const config = {
   state: {
-    mainColor: 'red', //背景颜色
+    mainColor: '#333', //主题颜色
   },
   mutations: {
     //设置背景颜色

@@ -1,7 +1,7 @@
 const {
     router
 } = require("../../server/server");
-const User = require('../../mongo/schema/userSchema')
+const User = require('../../mongo/schema/user')
 const crypto = require('crypto');
 
 //接受用户登录信息

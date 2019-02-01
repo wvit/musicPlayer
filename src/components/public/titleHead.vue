@@ -26,7 +26,6 @@ export default {
 .head {
   position: relative;
   height: 40px;
-  margin-bottom: 30px;
 }
 .title {
   position: absolute;

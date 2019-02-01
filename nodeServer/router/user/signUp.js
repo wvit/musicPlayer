@@ -1,7 +1,8 @@
 const {
     router
 } = require("../../server/server");
-const User = require('../../mongo/schema/userSchema');
+const User = require('../../mongo/schema/user');
+const UserConfig = require('../../mongo/schema/UserConfig');
 const crypto = require('crypto');
 
 //接受用户注册请求
@@ -11,7 +12,7 @@ router.post("/user/signUp", async ctx => {
     })
 });
 
-//保存user数据
+//保存用户注册数据
 function savaUser(reqData) {
     return new Promise(resolve => {
         User.findOne({
@@ -30,16 +31,25 @@ function savaUser(reqData) {
         } else {
             reqData.password = crypto.createHash('md5').update(reqData.password + '260817').digest('hex');
             reqData.userId = Date.now();
-            const user = new User(reqData);
-            user.save((err, res) => {
+            new User(reqData).save((err, res) => {
                 if (err) {
                     resData.code = -1;
                     resData.data = '注册失败';
+                    return;
                 }
+                saveUserConfig(reqData.userId);
             });
         }
         return new Promise(resolve => {
             resolve(resData)
         })
     })
+}
+
+//保存用户设置
+function saveUserConfig(userId) {
+    new UserConfig({
+        userId,
+        mainColor: '#333'
+    }).save();
 }

@@ -50,15 +50,31 @@ button {
 }
 
 .mt10 {
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .mt20 {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .mt30 {
+    margin-top: 30px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mb30 {
     margin-bottom: 30px;
+}
+
+.pd-lr10 {
+    padding: 0 10px;
 }
 
 .sendBtn {
@@ -67,4 +83,61 @@ button {
 
 .border-none {
     border: none !important;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.text-style {
+    line-height: 40px;
+    color: #333;
+    font-size: 14px;
+}
+
+/* 重置element样式 */
+.el-color-picker__color {
+    border: none !important;
+}
+
+/* 重置字体图标样式 */
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+    content: "\e60a";
+    font-size: 18px;
+}
+
+.icon-userCenter:before {
+    content: "\e60b";
+    font-size: 20px;
+}
+
+.icon-music:before {
+    content: "\e615";
+    font-size: 22px;
+    display: inline-block;
+    margin-top: -4px;
+}
+
+.icon-find:before {
+    display: inline-block;
+    margin-top: 2px;
+    content: "\e627";
+    font-size: 16px;
+}
+
+.icon-colorPicker:before {
+    content: "\e66f";
+    font-size: 18px;
 }

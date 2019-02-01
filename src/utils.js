@@ -152,7 +152,7 @@ const utils = {
         const gradual = ctx.createLinearGradient(0, size, size, size);
         let rotate = 0;
         canvas.width = canvas.height = size;
-        canvas.style.cssText = `  
+        canvas.style.cssText = `
                 position: fixed;
                 left: 50%;
                 top: 45%;
@@ -193,15 +193,15 @@ const utils = {
         const style = document.createElement('style');
         style.innerHTML = `
             .mainStyleOff{
-                background:#fff;
+                background:#fff !important;
                 color:${mainColor};
             }
             .mainStyleOn{
-                background:${mainColor};
+                background:${mainColor} !important;
                 color:#fff;
             }
             .mainBackgroundColor{
-                background:${mainColor};
+                background:${mainColor} !important;
             }
             .mainFontColor{
                 color:${mainColor};
