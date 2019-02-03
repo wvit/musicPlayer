@@ -44,7 +44,7 @@ export default {
   },
   //初始化肤色
   beforeMount() {
-    this.$utils.setAppMainColor();
+    this.$utils.setMainColor(this.$store.state.config.mainColor);
   },
   methods: {
     //登录
@@ -54,12 +54,21 @@ export default {
       } else if (!this.$utils.judgeNull(this.signIn.password)) {
         this.$utils.showToast({ text: "请填写登录密码" });
       } else {
-        this.$axios.post("/user/signIn", this.signIn).then(res => {
-          console.log("用户信息", res.data);
-          this.$utils.showToast({ text: res.data.data.text }).then(() => {
-            res.data.code === 0 ? this.$router.replace("/") : "";
+        this.$axios
+          .post("/user/signIn", this.signIn)
+          .then(res => {
+            return new Promise(resolve => {
+              this.$utils.showToast({ text: res.data.data.text }).then(() => {
+                resolve(res);
+              });
+            });
+          })
+          .then(res => {
+            if (res.data.code === 0) {
+              this.$router.replace("/");
+              sessionStorage.setItem("userId", res.data.data.userId);
+            }
           });
-        });
       }
     }
   }

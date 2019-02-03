@@ -62,7 +62,7 @@ export default {
   },
   //初始化肤色
   beforeMount() {
-    this.$utils.setAppMainColor();
+    this.$utils.setMainColor(this.$store.state.config.mainColor);
   },
   methods: {
     //是否明文显示密码开关

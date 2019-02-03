@@ -1,8 +1,10 @@
 const {
     router
 } = require("../../server/server");
+const mongoose = require('mongoose');
 const User = require('../../mongo/schema/user');
-const UserConfig = require('../../mongo/schema/UserConfig');
+const userConfig = require('../../mongo/schema/UserConfig');
+const UserConfig = mongoose.model('config', userConfig);
 const crypto = require('crypto');
 
 //接受用户注册请求

@@ -16,8 +16,8 @@ function findUser(reqData) {
     return new Promise(resolve => {
         User.findOne({
             nickname: reqData.nickname
-        }, (err, users) => {
-            resolve(users);
+        }, (err, user) => {
+            resolve(user);
         })
     }).then(user => {
         const password = crypto.createHash('md5').update(reqData.password + '260817').digest('hex');
@@ -33,11 +33,7 @@ function findUser(reqData) {
             resData.data.text = '密码错误';
         } else {
             resData.data = {
-                userInfo: {
-                    nickname: user.nickname,
-                    email: user.email,
-                    userId: user.userId
-                },
+                userId: user.userId,
                 text: '登录成功，正在跳转...'
             }
         }
