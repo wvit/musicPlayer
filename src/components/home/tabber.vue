@@ -32,12 +32,6 @@ export default {
       query(".tabber-active")[0].classList.remove("mainStyleOn");
     }
   },
-  computed: {
-    //获取背景颜色
-    getMainColor() {
-      return this.$store.state.config.mainColor;
-    }
-  },
   watch: {
     //监听路由变化，切换tab
     $route() {

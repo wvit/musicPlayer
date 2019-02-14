@@ -4,5 +4,7 @@ require("./user/signUp");
 require("./user/signIn");
 //获取用户信息
 require("./user/userInfo");
+//设置用户偏好设置
+require("./user/setUserConfig");
 //获取音乐列表
 require("./media/getMediaList");

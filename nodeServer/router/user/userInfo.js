@@ -1,16 +1,17 @@
 const {
-    router
+    router,
+    mongoose
 } = require("../../server/server");
-const mongoose = require('mongoose');
 const User = require('../../mongo/schema/user');
 const userConfig = require('../../mongo/schema/UserConfig');
 const UserConfig = mongoose.model('config', userConfig);
 
-//获取用户数据
+//获取用户数据路由
 router.get("/user/getUserInfo", async ctx => {
     await getUserData(ctx.request.query.userId).then(data => {
         ctx.body = data;
     })
+
 });
 
 //获取用户数据

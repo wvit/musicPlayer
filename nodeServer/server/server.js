@@ -30,5 +30,6 @@ app.listen(server.port, server.host, () => {
 
 module.exports = {
     router,
-    bodyParser
+    bodyParser,
+    mongoose
 }

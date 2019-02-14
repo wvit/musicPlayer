@@ -1,10 +1,7 @@
 <template>
   <div>
     <titleHead title="用户中心"></titleHead>
-    <div class="pd-lr10">
-      <router-link to="/signIn">登录</router-link>/
-      <router-link to="/signUp">注册</router-link>
-    </div>
+    <user></user>
     <ul class="pd-lr10 handle">
       <li class="clearfix mt30">
         <em class="iconfont icon-colorPicker mainFontColor"></em>
@@ -21,6 +18,7 @@ export default {
   },
   components: {
     titleHead: () => import("@/components/public/titleHead.vue"),
+    user: () => import("@/components/userCenter/user.vue"),
     colorPicker: () => import("@/components/userCenter/colorPicker.vue")
   }
 };

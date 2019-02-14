@@ -20,7 +20,7 @@ Axios.interceptors.request.use(req => {
 // 请求拦截,监听响应
 Axios.interceptors.response.use(res => {
     requestCount--;
-    if (requestCount === 0) {
+    if (requestCount <= 0) {
         utils.query('body')[0].removeChild(utils.query('.loadingDom')[0]);
     }
     return res;

@@ -14,11 +14,19 @@ export default {
     };
   },
   methods: {
-    //选择主题颜色
+    //选择并保存主题颜色
     selectColor(color) {
       if (color) {
         this.$store.commit("setMainColor", color);
         this.$utils.setMainColor(color);
+        if (sessionStorage.getItem("userId")) {
+          this.$axios.post("/user/setConfig", {
+            userId: sessionStorage.getItem("userId"),
+            mainColor: color
+          });
+        } else {
+          sessionStorage.setItem("mainColor", color);
+        }
       }
     }
   }

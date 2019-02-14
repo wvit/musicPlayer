@@ -38,16 +38,25 @@ export default {
   },
   //初始化颜色
   beforeMount() {
-    this.$utils.setMainColor(this.$store.state.config.mainColor);
-    this.$axios
-      .get(`/user/getUserInfo?userId=${sessionStorage.getItem("userId")}`)
-      .then(res => {
+    const userId = sessionStorage.getItem("userId");
+    let mainColor = sessionStorage.getItem("mainColor");
+    if (userId) {
+      this.$axios.get(`/user/getUserInfo?userId=${userId}`).then(res => {
         console.log("用户数据", res.data);
         if (res.data.code === 0) {
-          this.$store.commit("setMainColor", res.data.data.mainColor);
-          this.$utils.setMainColor(this.$store.state.config.mainColor);
+          mainColor = res.data.data.mainColor;
+          this.$store.commit("setMainColor", mainColor);
+          this.$utils.setMainColor(mainColor);
+          sessionStorage.setItem("userInfo", JSON.stringify(res.data.data));
+          sessionStorage.setItem("mainColor", mainColor);
         }
       });
+    } else {
+      mainColor
+        ? this.$store.commit("setMainColor", mainColor)
+        : (mainColor = this.$store.state.config.mainColor);
+      this.$utils.setMainColor(mainColor);
+    }
   }
 };
 </script>

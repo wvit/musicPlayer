@@ -1,7 +1,7 @@
 const {
-    router
+    router,
+    mongoose
 } = require("../../server/server");
-const mongoose = require('mongoose');
 const User = require('../../mongo/schema/user');
 const userConfig = require('../../mongo/schema/UserConfig');
 const UserConfig = mongoose.model('config', userConfig);

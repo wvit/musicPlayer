@@ -50,6 +50,7 @@ const utils = {
         transition:0.4s;
         -webkit-user-select: none;
         user-select: none;
+        white-space: nowrap 
         `;
         this.query('body')[0].appendChild(p);
         return new Promise(resolve => {
