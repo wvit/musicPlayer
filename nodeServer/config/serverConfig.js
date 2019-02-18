@@ -1,11 +1,13 @@
+const production = true;
+
 module.exports = {
-    dbs: 'mongodb://localhost/musicPlayerData',
+    dbs: 'mongodb://localhost/musicPlayerDB',
     server: {
         get host() {
-            return '10.100.115.145'
+            return production ? '172.27.16.14' : '10.100.115.145'
         },
         get port() {
-            return 2002
+            return 1999
         }
     },
     redis: {

@@ -2,7 +2,7 @@
 node_modules
 nodeServer/node_modules
 /dist
-nodeServer/mongo/db
+nodeServer/mongo/musicPlayerDB
 
 npm-debug.log*
 yarn-debug.log*

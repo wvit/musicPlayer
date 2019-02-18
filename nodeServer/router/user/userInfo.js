@@ -3,7 +3,7 @@ const {
     mongoose
 } = require("../../server/server");
 const User = require('../../mongo/schema/user');
-const userConfig = require('../../mongo/schema/UserConfig');
+const userConfig = require('../../mongo/schema/userConfig');
 const UserConfig = mongoose.model('config', userConfig);
 
 //获取用户数据路由

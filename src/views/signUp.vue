@@ -62,7 +62,11 @@ export default {
   },
   //初始化肤色
   beforeMount() {
-    this.$utils.setMainColor(this.$store.state.config.mainColor);
+    let mainColor = sessionStorage.getItem("mainColor");
+    mainColor
+      ? this.$store.commit("setMainColor", mainColor)
+      : (mainColor = this.$store.state.config.mainColor);
+    this.$utils.setMainColor(mainColor);
   },
   methods: {
     //是否明文显示密码开关

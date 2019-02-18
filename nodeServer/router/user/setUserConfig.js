@@ -2,7 +2,7 @@ const {
   router,
   mongoose
 } = require("../../server/server");
-const userConfig = require('../../mongo/schema/UserConfig');
+const userConfig = require('../../mongo/schema/userConfig');
 const UserConfig = mongoose.model('config', userConfig)
 
 // 接受用户设置请求
